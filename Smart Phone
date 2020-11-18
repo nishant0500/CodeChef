@@ -1,0 +1,52 @@
+/* package codechef; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class Codechef
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		// your code goes here
+		Scanner sc= new Scanner(System.in);
+		int customers=0;
+		if(sc.hasNextInt())
+		    customers = sc.nextInt();
+		Integer buyers[] = new Integer[customers];
+		for(int i=0;i<customers;i++)
+		{
+		    buyers[i]=sc.nextInt();
+		}
+		Arrays.sort(buyers,Collections.reverseOrder());
+		long maxRevenue = 0;
+        for(int i = 0; i < buyers.length; i++){
+            maxRevenue = Math.max(maxRevenue, (i + 1L) * buyers[i]);
+        }
+        System.out.println(maxRevenue);
+		
+	}
+}
+--------------------------------
+Sample Input 1
+4
+30
+20
+53
+14
+
+Sample Output 1
+60
+---------------------------------
+Sample Input 2
+5
+40
+3
+65
+33
+21
+
+Sample Output 2
+99
+---------------------------------

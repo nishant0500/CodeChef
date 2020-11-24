@@ -1,0 +1,82 @@
+/* package codechef; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class Codechef
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		// your code goes here
+		Scanner sc = new Scanner(System.in);
+		int T = sc.nextInt();
+		for(int t=1; t<=T; t++){
+		    int num = sc.nextInt();
+		    String nation = sc.nextLine().trim();
+		    int sum, months;
+		    switch(nation)
+		    {
+		        case "INDIAN":
+		            sum = calculateSum(num, sc);
+		            months = sum / 200;
+		            System.out.println(months);
+		            break;
+		        case "NON_INDIAN":
+		            sum = calculateSum(num, sc);
+		            months= sum/400;
+		            System.out.println(months);
+		            break;
+		    }
+		}
+	}
+	
+	private static int calculateSum(int num, Scanner sc) {
+//	    Scanner sc = new Scanner(System.in);
+	    int sum=0;
+        for(int i=1; i<=num; i++){
+            String c = sc.next();
+            switch(c.trim()){
+                case "CONTEST_WON":
+                    int rank = sc.nextInt();
+                    if(rank>=20)
+                        sum += 300;
+                    else
+                        sum += 300+(20-rank);
+                    break;
+                case "TOP_CONTRIBUTOR":
+                    sum=sum+300;
+                    break;
+                        
+                case "BUG_FOUND":
+                    int bug =sc.nextInt();
+                    sum=sum+bug;
+                    break;
+                            
+                case "CONTEST_HOSTED":
+                    sum = sum+50;
+                    break;            
+            }
+        }
+        return sum;
+	}
+}
+---------------------------------------------------------
+Input:
+2
+4 INDIAN
+CONTEST_WON 1
+TOP_CONTRIBUTOR
+BUG_FOUND 100
+CONTEST_HOSTED
+4 NON_INDIAN
+CONTEST_WON 1
+TOP_CONTRIBUTOR
+BUG_FOUND 100
+CONTEST_HOSTED
+
+Output :
+3
+1
+--------------------------------------------------------------

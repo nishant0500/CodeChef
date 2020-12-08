@@ -1,0 +1,49 @@
+/* package codechef; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class Codechef
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		// your code goes here
+		Scanner sc = new Scanner(System.in);
+		int testcase =0;
+		if(sc.hasNext()) { testcase =sc.nextInt();}
+		while(testcase-- >0)
+		    {
+		        int A = sc.nextInt();
+		        int B = sc.nextInt();
+		        long pair=0;
+		       ----------------------------------
+           /* for(int i=1;i<=A;i++)
+		        {
+		            for(int j=1;j<=B;j++)
+		            {
+		                if((i+j) % 2==0)
+		                     pair++;
+		            }
+		        }*/---> Time Limits Exceed as we need to interate more 
+		        ---------------------------------
+            long evenX = A/2;  // No of even numbers in A
+		        long oddX = A-evenX; // No of Odd numbers in A
+		        long evenY = B/2;
+		        long oddY = B-evenY;
+		        pair = (evenX*evenY)+(oddX*oddY); // even+even =even && odd +odd =even 
+		        System.out.println(pair);
+		    }
+	}
+}
+--------------------------------
+Input:
+2
+1 1
+2 3 
+
+Output:
+1
+3
+--------------------------
